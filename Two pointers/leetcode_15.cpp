@@ -2,6 +2,7 @@
 // and nums[i] + nums[j] + nums[k] == 0.
 // Notice that the solution set must not contain duplicate triplets.
 
+#include <iostream>
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -68,3 +69,27 @@ public:
         return result;
     }
 };
+
+int main()
+{
+    // Create a vector of integers for nums
+    vector<int> nums = {-1, 0, 1, 2, -1, -4};
+
+    // Create a Solution object
+    Solution solution;
+
+    // Find all unique triplets in the array that sum to zero
+    vector<vector<int>> triplets = solution.threeSum(nums);
+
+    // Print the unique triplets
+    for (const vector<int> &triplet : triplets)
+    {
+        for (int num : triplet)
+        {
+            cout << num << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}

@@ -10,30 +10,46 @@ class ListNode:
 
 class Solution:
     def mergeTwoLists(self, list1: ListNode, list2: ListNode) -> ListNode:
-        """
-        Merges two sorted linked lists into a single sorted linked list.
-
-        Args:
-            list1: A sorted linked list.
-            list2: A sorted linked list.
-
-        Returns:
-            A sorted linked list containing all of the elements of list1 and list2.
-        """
-
         dummy = ListNode(-1)
-        cur = dummy
+        curr = dummy
 
         while list1 and list2:
             if list1.val < list2.val:
-                cur.next = list1
+                curr.next = list1
                 list1 = list1.next
             else:
-                cur.next = list2
+                curr.next = list2
                 list2 = list2.next
-            cur = cur.next
 
-        # Add the remaining nodes from either list, if any.
-        cur.next = list1 if list1 else list2
+            curr = curr.next
+
+        # Add remaining nodes from either list, if any
+        curr.next = list1 or list2
 
         return dummy.next
+
+
+# Create the first linked list
+list1 = ListNode(1)
+list1.next = ListNode(3)
+list1.next.next = ListNode(5)
+
+# Create the second linked list
+list2 = ListNode(2)
+list2.next = ListNode(4)
+
+# Create a Solution object
+solution = Solution()
+
+# Merge the two linked lists
+merged_list = solution.mergeTwoLists(list1, list2)
+
+# Print the merged list
+while merged_list:
+    print(merged_list.val, end=" ")
+    merged_list = merged_list.next
+
+print()
+
+# Delete the linked lists
+del list1, list2, merged_list

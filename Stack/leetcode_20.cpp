@@ -5,8 +5,7 @@
 #include <iostream>
 #include <unordered_map>
 #include <stack>
-
-    using namespace std;
+using namespace std;
 
 class Solution
 {
@@ -35,3 +34,22 @@ public:
         return stk.empty();
     }
 };
+
+int main()
+{
+    string s = "()";
+    Solution solution;
+
+    bool isValid = solution.isValid(s);
+
+    if (isValid)
+    {
+        cout << "The string " << s << " is valid." << endl;
+    }
+    else
+    {
+        cout << "The string " << s << " is not valid." << endl;
+    }
+
+    return 0;
+}

@@ -5,34 +5,71 @@
 
 
 # Solution 2: (Two-pass Hash Table)
-class Solution:
-  def twoSum(self, nums: List[int], target: int) -> List[int]:
-    numMap = {}
+def twoSum(nums, target):
+    num_map = {}
     n = len(nums)
 
     # Build the hash table
     for i in range(n):
-      numMap[nums[i]] = i
+        num_map[nums[i]] = i
 
     # Find the complement
     for i in range(n):
-      complement = target - nums[i]
-      if complement in numMap and numMap[complement] != i:
-        return [i, numMap[complement]]
+        complement = target - nums[i]
+        if complement in num_map and num_map[complement] != i:
+            return [i, num_map[complement]]
 
     return []  # No solution found
+
+
+# Create vector of integers for nums
+nums = [2, 7, 11, 15]
+
+# Target value
+target = 9
+
+# Find the pair of indices that sum up to target
+indices = twoSum(nums, target)
+
+# Check if a solution was found
+if not indices:
+    print("No solution found.")
+else:
+    print("Indices of the two numbers that sum up to target:",
+          indices[0], ",", indices[1])
+
 
 
 # Solution 3: (One-pass Hash Table)
-class Solution:
-  def twoSum(self, nums: List[int], target: int) -> List[int]:
-    numMap = {}
+def twoSum(nums, target):
+    num_map = {}
     n = len(nums)
 
+    # Build the hash table
     for i in range(n):
-      complement = target - nums[i]
-      if complement in numMap:
-        return [numMap[complement], i]
-      numMap[nums[i]] = i
+        num_map[nums[i]] = i
+
+    # Find the complement
+    for i in range(n):
+        complement = target - nums[i]
+        if complement in num_map and num_map[complement] != i:
+            return [i, num_map[complement]]
 
     return []  # No solution found
+
+
+# Create vector of integers for nums
+nums = [2, 7, 11, 15]
+
+# Target value
+target = 9
+
+# Find the pair of indices that sum up to target
+indices = twoSum(nums, target)
+
+# Check if a solution was found
+if not indices:
+    print("No solution found.")
+else:
+    print("Indices of the two numbers that sum up to target:",
+          indices[0], ",", indices[1])

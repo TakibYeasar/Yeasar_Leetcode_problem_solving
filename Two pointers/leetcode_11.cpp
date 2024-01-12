@@ -38,6 +38,17 @@ public:
 
 int main()
 {
+    // Create a vector of integers for height
+    vector<int> height = {1, 8, 6, 2, 5, 4, 7, 3, 1};
+
+    // Create a Solution object
+    Solution solution;
+
+    // Find the maximum area of the histogram
+    int max_area = solution.maxArea(height);
+
+    // Print the maximum area value
+    cout << "Maximum area of the histogram: " << max_area << endl;
 
     return 0;
 }

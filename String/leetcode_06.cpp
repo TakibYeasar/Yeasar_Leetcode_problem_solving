@@ -6,6 +6,7 @@
 // Y   I   R
 // And then read line by line: "PAHNAPLSIIGYIR"
 
+#include <iostream>
 #include <string>
 #include <vector>
 using namespace std;
@@ -45,3 +46,16 @@ public:
         return result;
     }
 };
+
+int main()
+{
+    string s = "PAYPALISHIRING";
+    int numRows = 3;
+
+    Solution solution;
+    string convertedString = solution.convert(s, numRows);
+
+    cout << "The converted string is: " << convertedString << endl;
+
+    return 0;
+}

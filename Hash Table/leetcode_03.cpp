@@ -52,6 +52,9 @@ int main()
 // removing characters from the set until the repeating character is no longer present.We insert the current character into the
 // set and continue the iteration.Finally, we return the maxLength as the length of the longest substring without repeating characters.
 
+#include <iostream>
+#include <vector>
+using namespace std;
 #include <unordered_set>
 class Solution
 {
@@ -85,6 +88,18 @@ public:
     }
 };
 
+int main()
+{
+    string s = "abcabcbb";
+    Solution solution;
+
+    int maxLength = solution.lengthOfLongestSubstring(s);
+
+    cout << "The length of the longest substring without repeating characters in \"" << s << "\" is: " << maxLength << endl;
+
+    return 0;
+}
+
 //===================>>> Approach 2 - Unordered Map
 // We improve upon the first solution by using an unordered map(charMap)
 // instead of a set.The map stores characters as keys and their indices as values.We still maintain the left and right pointers
@@ -94,6 +109,9 @@ public:
 //  the next position after the last occurrence of the character.We update the index of the current character in the charMap and
 //  continue the iteration.At the end, we return the maxLength as the length of the longest substring without repeating characters.
 
+#include <iostream>
+#include <vector>
+using namespace std;
 #include <unordered_map>
 class Solution
 {
@@ -123,6 +141,18 @@ public:
     }
 };
 
+int main()
+{
+    string s = "abcabcbb";
+    Solution solution;
+
+    int maxLength = solution.lengthOfLongestSubstring(s);
+
+    cout << "The length of the longest substring without repeating characters in \"" << s << "\" is: " << maxLength << endl;
+
+    return 0;
+}
+
 //===================>>> Approach 3 - Integer Array
 // This solution uses an integer array charIndex to store the indices of characters.
 // We eliminate the need for an unordered map by utilizing the array.
@@ -135,6 +165,9 @@ public:
 // We continue the iteration until reaching the end of the string.
 // Finally, we return the maxLength as the length of the longest substring without repeating characters.
 
+#include <iostream>
+#include <vector>
+using namespace std;
 class Solution
 {
 public:
@@ -158,3 +191,15 @@ public:
         return maxLength;
     }
 };
+
+int main()
+{
+    string s = "abcabcbb";
+    Solution solution;
+
+    int maxLength = solution.lengthOfLongestSubstring(s);
+
+    cout << "The length of the longest substring without repeating characters in \"" << s << "\" is: " << maxLength << endl;
+
+    return 0;
+}

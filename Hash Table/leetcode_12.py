@@ -19,16 +19,22 @@
 # C can be placed before D (500) and M (1000) to make 400 and 900.
 # Given an integer, convert it to a roman numeral.
 
-class Solution:
-  def intToRoman(self, num: int) -> str:
+def intToRoman(num):
     values = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
-    symbols = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
+    symbols = ["M", "CM", "D", "CD", "C", "XC",
+               "L", "XL", "X", "IX", "V", "IV", "I"]
 
     result = ""
     for i in range(len(values)):
-      while num >= values[i]:
-        result += symbols[i]
-        num -= values[i]
+        while num >= values[i]:
+            result += symbols[i]
+            num -= values[i]
 
     return result
 
+
+if __name__ == "__main__":
+    num = 1994
+    romanNumeral = intToRoman(num)
+
+    print(f"The Roman numeral equivalent of {num} is: {romanNumeral}")

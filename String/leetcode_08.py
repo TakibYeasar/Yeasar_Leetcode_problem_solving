@@ -12,29 +12,42 @@
 #
 # Only the space character ' ' is considered a whitespace character.
 # Do not ignore any characters other than the leading whitespace or the rest of the string after the digits.
-
 class Solution:
-  def myAtoi(self, s: str) -> int:
-    s = s.strip()
-    if not s:
-      return 0
+    def myAtoi(self, str: str) -> int:
+        result = 0
+        sign = 1
+        i = 0
+        n = len(str)
 
-    sign = 1
-    result = 0
-    i = 0
+        # Skip leading whitespace
+        while i < n and str[i] == ' ':
+            i += 1
 
-    if s[i] in "+-":
-      sign = -1 if s[i] == "-" else 1
-      i += 1
+        # Handle the sign
+        if i < n and (str[i] == '+' or str[i] == '-'):
+            sign = 1 if str[i] == '+' else -1
+            i += 1
 
-    while i < len(s) and s[i].isdigit():
-      digit = ord(s[i]) - ord("0")
+        # Convert the digits to an integer
+        while i < n and str[i].isdigit():
+            digit = int(str[i])
 
-      if result > (2 ** 31 - 1 - digit) // 10:
-        return 2 ** 31 - 1 if sign == 1 else -2 ** 31
+            # Check for overflow
+            if result > INT_MAX // 10 or (result == INT_MAX // 10 and digit > 7):
+                return INT_MAX if sign == 1 else INT_MIN
 
-      result = result * 10 + digit
-      i += 1
+            result = result * 10 + digit
+            i += 1
 
-    return sign * result
+        return result * sign
+
+
+if __name__ == "__main__":
+    str = "12345"
+
+    solution = Solution()
+    result = solution.myAtoi(str)
+
+    print(f"The integer value of '{str}' is: {result}")
+
 

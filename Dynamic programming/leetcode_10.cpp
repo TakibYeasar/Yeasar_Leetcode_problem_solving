@@ -4,8 +4,10 @@
 // '*' Matches zero or more of the preceding element.
 // The matching should cover the entire input string (not partial).
 
+#include <iostream>
 #include <string>
 #include <vector>
+
 using namespace std;
 
 class Solution
@@ -41,3 +43,23 @@ public:
         return dp[m][n];
     }
 };
+
+int main()
+{
+    string s = "aa";
+    string p = "a*";
+
+    Solution solution;
+    bool match = solution.isMatch(s, p);
+
+    if (match)
+    {
+        cout << "The pattern matches the string." << endl;
+    }
+    else
+    {
+        cout << "The pattern does not match the string." << endl;
+    }
+
+    return 0;
+}

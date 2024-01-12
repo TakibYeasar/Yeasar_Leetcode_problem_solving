@@ -3,13 +3,25 @@
 
 class Solution:
   def isPalindrome(self, x: int) -> bool:
-    """Returns True if the given number is a palindrome, False otherwise."""
     if x < 0:
       return False
 
-    reversed_x = 0
-    while x > 0:
-      reversed_x = reversed_x * 10 + x % 10
-      x //= 10
+    reversedNumber = 0
+    temp = x
 
-    return reversed_x == x
+    while temp != 0:
+      reversedNumber = reversedNumber * 10 + temp % 10
+      temp //= 10
+
+    return reversedNumber == x
+
+
+if __name__ == "__main__":
+  x = 998765432
+  solution = Solution()
+  isPal = solution.isPalindrome(x)
+
+  if isPal:
+    print(f"The integer {x} is a palindrome.")
+  else:
+    print(f"The integer {x} is not a palindrome.")

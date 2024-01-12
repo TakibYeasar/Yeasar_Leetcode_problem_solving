@@ -2,17 +2,20 @@
 // could represent.Return the answer in any order. A mapping of digits to
 // letters(just like on the telephone buttons) is given below.Note that 1 does not map to any letters.
 
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 #include <unordered_map>
 using namespace std;
 
-class Solution{
-    public:
-    vector<string> letterCombinations(string digits){
+class Solution
+{
+public:
+    vector<string> letterCombinations(string digits)
+    {
         vector<string> result;
 
-        if(digits.empty()){
+        if (digits.empty())
+        {
             return result;
         }
 
@@ -32,9 +35,9 @@ class Solution{
         return result;
     }
 
-    private:
-        void backtrack(const unordered_map<char, string> &mappings, const string &digits, int index, string &current, vector<string> &result)
-        {
+private:
+    void backtrack(const unordered_map<char, string> &mappings, const string &digits, int index, string &current, vector<string> &result)
+    {
         if (index == digits.length())
         {
             result.push_back(current);
@@ -48,6 +51,20 @@ class Solution{
             backtrack(mappings, digits, index + 1, current, result);
             current.pop_back();
         }
-        }
+    }
 };
 
+int main()
+{
+    string digits = "23";
+    Solution solution;
+    vector<string> combinations = solution.letterCombinations(digits);
+
+    cout << "Letter combinations of phone number " << digits << ":" << endl;
+    for (string combination : combinations)
+    {
+        cout << combination << endl;
+    }
+
+    return 0;
+}

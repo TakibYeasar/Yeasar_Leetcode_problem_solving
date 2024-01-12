@@ -70,3 +70,28 @@ public:
         return ans;
     }
 };
+
+int main()
+{
+    // Create a vector of integers for nums
+    vector<int> nums = {1, 0, -1, 0, -2, 2};
+    int target = 0;
+
+    // Create a Solution object
+    Solution solution;
+
+    // Find all unique quadruplets in the array that sum to zero
+    vector<vector<int>> quadruplets = solution.fourSum(nums, target);
+
+    // Print the unique quadruplets
+    for (const vector<int> &quadruplet : quadruplets)
+    {
+        for (const int &num : quadruplet)
+        {
+            std::cout << num << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    return 0;
+}

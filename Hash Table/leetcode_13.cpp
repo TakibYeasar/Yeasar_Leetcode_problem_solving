@@ -61,6 +61,18 @@ public:
     }
 };
 
+int main()
+{
+    string s = "MCMXCIV";
+    Solution solution;
+
+    int integer = solution.romanToInt(s);
+
+    cout << "The integer equivalent of the Roman numeral \"" << s << "\" is: " << integer << endl;
+
+    return 0;
+}
+
 // Certainly !Let's break down the code and provide a clear intuition and explanation, using the examples "IX" and "XI" to 
 // demonstrate its functionality.
 // Intuition : 
@@ -116,6 +128,10 @@ public:
 // After the for loop, the accumulated value in ans represents the integer conversion of the Roman numeral string, and it is 
 // returned as the result.
 
+#include <iostream>
+#include <string>
+#include <unordered_map>
+using namespace std;
 class Solution
 {
 public:
@@ -147,3 +163,15 @@ public:
         return ans;
     }
 };
+
+int main()
+{
+    string s = "MCMXCIV";
+    Solution solution;
+
+    int integer = solution.romanToInt(s);
+
+    cout << "The integer equivalent of the Roman numeral \"" << s << "\" is: " << integer << endl;
+
+    return 0;
+}

@@ -16,12 +16,6 @@ public:
         long long reversed = 0;
         long long temp = x;
 
-        // The error message indicates that the expression 998765432 * 10 overflows the int type.This is because the int type in C++ has a
-        // limited range of values, and the result of the expression is too large to be represented in that type.
-
-        // To fix this error,you can change the type of the variables x and reversed to long long or unsigned long long.These types have a
-        // larger range of values and can safely represent the result of the expression.while (temp != 0)
-
         while (temp != 0)
         {
             reversed = reversed * 10 + temp % 10;
@@ -34,9 +28,19 @@ public:
 
 int main()
 {
-    Solution isPalindrome();
-    int x = 50;
-    int result = isPalindrome(x);
-    cout << result << endl;
+    int x = 998765432;
+    Solution solution;
+
+    bool isPal = solution.isPalindrome(x);
+
+    if (isPal == true)
+    {
+        cout << "The integer " << x << " is a palindrome." << endl;
+    }
+    else
+    {
+        cout << "The integer " << x << " is not a palindrome." << endl;
+    }
+
     return 0;
 }

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <limits.h>
 using namespace std;
 
 class Solution
@@ -40,3 +41,21 @@ public:
         return ans;
     }
 };
+
+int main()
+{
+    // Create a vector of integers for nums
+    vector<int> nums = {-1, 2, 1, -4};
+    int target = 1;
+
+    // Create a Solution object
+    Solution solution;
+
+    // Find the sum of three integers in nums that is closest to the target
+    int closest_sum = solution.threeSumClosest(nums, target);
+
+    // Print the closest sum value
+    cout << "Closest sum to " << target << " in nums: " << closest_sum << endl;
+
+    return 0;
+}

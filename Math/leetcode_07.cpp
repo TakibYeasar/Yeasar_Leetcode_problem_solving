@@ -3,6 +3,7 @@
 // bit integers(signed or unsigned).
 
 #include <iostream>
+#include <climits>
 using namespace std;
 
 class Solution
@@ -29,3 +30,22 @@ public:
         }
     }
 };
+
+int main()
+{
+    int x = -12345;
+    Solution solution;
+
+    int reversed = solution.reverse(x);
+
+    if (reversed == 0)
+    {
+        cout << "The reversed integer overflows the 32-bit signed integer range." << endl;
+    }
+    else
+    {
+        cout << "The reversed integer of " << x << " is: " << reversed << endl;
+    }
+
+    return 0;
+}

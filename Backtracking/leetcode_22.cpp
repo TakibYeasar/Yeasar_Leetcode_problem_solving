@@ -65,3 +65,23 @@ private:
         current.pop_back();
     }
 };
+
+int main()
+{
+    // Input the number of pairs of parentheses
+    int n = 3;
+
+    // Create a Solution object
+    Solution solution;
+
+    // Generate all valid parentheses expressions of length n
+    vector<string> parentheses = solution.generateParenthesis(n);
+
+    // Print the generated parentheses expressions
+    for (const string &parenthesis : parentheses)
+    {
+        cout << parenthesis << endl;
+    }
+
+    return 0;
+}

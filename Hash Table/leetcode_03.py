@@ -24,57 +24,72 @@ if __name__ == "__main__":
 
 # // ===================>>> Approach 1 -
 # // Set
-  class Solution:
-    def lengthOfLongestSubstring(self, s: str) -> int:
-      n = len(s)
-      maxLength = 0
-      charSet = set()
-      left = 0
+def lengthOfLongestSubstring(s):
+    charSet = set()
+    maxLength = 0
+    left = 0
 
-      for right in range(n):
+    for right in range(len(s)):
         if s[right] not in charSet:
-          charSet.add(s[right])
-          maxLength = max(maxLength, right - left + 1)
+            charSet.add(s[right])
+            maxLength = max(maxLength, right - left + 1)
         else:
-          while s[right] in charSet:
-            charSet.remove(s[left])
-            left += 1
-          charSet.add(s[right])
+            while s[right] in charSet:
+                charSet.remove(s[left])
+                left += 1
+            charSet.add(s[right])
 
-      return maxLength
+    return maxLength
+
+if __name__ == "__main__":
+    s = "abcabcbb"
+    maxLength = lengthOfLongestSubstring(s)
+
+    print("The length of the longest substring without repeating characters in", s, "is:", maxLength)
+
 
 # //= == == == == == == == == == >> > Approach 2 - Unordered Map
-  class Solution:
-    def lengthOfLongestSubstring(self, s: str) -> int:
-      n = len(s)
-      maxLength = 0
-      charMap = {}
-      left = 0
+def lengthOfLongestSubstring(s):
+    char_map = {}
+    max_length = 0
+    left = 0
 
-      for right in range(n):
-        if s[right] not in charMap or charMap[s[right]] < left:
-          charMap[s[right]] = right
-          maxLength = max(maxLength, right - left + 1)
+    for right in range(len(s)):
+        if s[right] not in char_map or char_map[s[right]] < left:
+            char_map[s[right]] = right
+            max_length = max(max_length, right - left + 1)
         else:
-          left = charMap[s[right]] + 1
-          charMap[s[right]] = right
+            left = char_map[s[right]] + 1
+            char_map[s[right]] = right
 
-      return maxLength
+    return max_length
+
+if __name__ == "__main__":
+    s = "abcabcbb"
+    max_length = lengthOfLongestSubstring(s)
+
+    print(f"The length of the longest substring without repeating characters in {s} is: {max_length}")
 
 
 # //===================>>> Approach 3 - Integer Array
+def lengthOfLongestSubstring(s):
+    char_index = [None] * 128
+    max_length = 0
+    left = 0
 
-  class Solution:
-    def lengthOfLongestSubstring(self, s: str) -> int:
-      n = len(s)
-      maxLength = 0
-      charIndex = [-1] * 128
-      left = 0
+    for right in range(len(s)):
+        if char_index[ord(s[right])] is not None and char_index[ord(s[right])] >= left:
+            left = char_index[ord(s[right])] + 1
 
-      for right in range(n):
-        if charIndex[ord(s[right])] >= left:
-          left = charIndex[ord(s[right])] + 1
-        charIndex[ord(s[right])] = right
-        maxLength = max(maxLength, right - left + 1)
+        char_index[ord(s[right])] = right
+        max_length = max(max_length, right - left + 1)
 
-      return maxLength
+    return max_length
+
+
+if __name__ == "__main__":
+    s = "abcabcbb"
+    max_length = lengthOfLongestSubstring(s)
+
+    print("The length of the longest substring without repeating characters in",
+          s, "is:", max_length)

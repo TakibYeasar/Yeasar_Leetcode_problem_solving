@@ -11,17 +11,30 @@ class Solution:
         if numRows == 1:
             return s  # No change needed for a single row.
 
-        rows = [''] * min(numRows, len(s))
-        current_row = 0
-        going_down = False
+        rows = [[] for _ in range(min(numRows, len(s)))]
+        currentRow = 0
+        goingDown = False
 
         for char in s:
-            rows[current_row] += char
+            rows[currentRow].append(char)
 
-            if current_row == 0 or current_row == numRows - 1:
-                going_down = not going_down
+            if currentRow == 0 or currentRow == numRows - 1:
+                goingDown = not goingDown
 
-            current_row += 1 if going_down else -1
+            currentRow += 1 if goingDown else -1
 
-        result = ''.join(rows)
+        result = ""
+        for row in rows:
+            result += "".join(row)
+
         return result
+
+
+if __name__ == "__main__":
+    s = "PAYPALISHIRING"
+    numRows = 3
+
+    solution = Solution()
+    convertedString = solution.convert(s, numRows)
+
+    print(f"The converted string is: {convertedString}")

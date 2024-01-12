@@ -13,7 +13,9 @@
 // Only the space character ' ' is considered a whitespace character.
 // Do not ignore any characters other than the leading whitespace or the rest of the string after the digits.
 
+#include <iostream>
 #include <string>
+#include <climits>
 using namespace std;
 
 class Solution
@@ -57,3 +59,15 @@ public:
         return result * sign;
     }
 };
+
+int main()
+{
+    string str = "12345";
+
+    Solution solution;
+    int result = solution.myAtoi(str);
+
+    cout << "The integer value of '" << str << "' is: " << result << endl;
+
+    return 0;
+}

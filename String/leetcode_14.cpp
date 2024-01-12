@@ -1,8 +1,10 @@
 // Write a function to find the longest common prefix string amongst an array of strings.
 // If there is no common prefix, return an empty string "".
 
+#include <iostream>
 #include <string>
 #include <vector>
+#include <climits>
 using namespace std;
 
 class Solution
@@ -48,3 +50,15 @@ public:
         return prefix;
     }
 };
+
+int main()
+{
+    vector<string> strs = {"flower", "flow", "flight"};
+
+    Solution solution;
+    string prefix = solution.longestCommonPrefix(strs);
+
+    cout << "The longest common prefix of the given strings is: " << prefix << endl;
+
+    return 0;
+}

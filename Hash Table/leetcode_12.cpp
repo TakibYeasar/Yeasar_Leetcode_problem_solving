@@ -19,6 +19,7 @@
 // C can be placed before D (500) and M (1000) to make 400 and 900.
 // Given an integer, convert it to a roman numeral.
 
+#include <iostream>
 #include <string>
 #include <vector>
 using namespace std;
@@ -43,3 +44,15 @@ public:
         return result;
     }
 };
+
+int main()
+{
+    int num = 1994;
+    Solution solution;
+
+    string romanNumeral = solution.intToRoman(num);
+
+    cout << "The Roman numeral equivalent of " << num << " is: " << romanNumeral << endl;
+
+    return 0;
+}

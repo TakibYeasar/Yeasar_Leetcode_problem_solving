@@ -60,7 +60,39 @@ public:
     }
 };
 
+int main()
+{
+    // Create vector of integers for nums
+    vector<int> nums = {2, 7, 11, 15};
+
+    // Target value
+    int target = 9;
+
+    // Create a Solution object
+    Solution solution;
+
+    // Find the pair of indices that sum up to target
+    vector<int> indices = solution.twoSum(nums, target);
+
+    // Check if a solution was found
+    if (indices.empty())
+    {
+        cout << "No solution found." << endl;
+    }
+    else
+    {
+        cout << "Indices of the two numbers that sum up to target: " << indices[0] << ", " << indices[1] << endl;
+    }
+
+    return 0;
+}
+
 // ===================>>> Solution 3: (One-pass Hash Table)
+
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+using namespace std;
 class Solution
 {
 public:
@@ -83,6 +115,32 @@ public:
     }
 };
 
+int main()
+{
+    // Create vector of integers for nums
+    vector<int> nums = {2, 7, 11, 15};
+
+    // Target value
+    int target = 9;
+
+    // Create a Solution object
+    Solution solution;
+
+    // Find the pair of indices that sum up to target
+    vector<int> indices = solution.twoSum(nums, target);
+
+    // Check if a solution was found
+    if (indices.empty())
+    {
+        cout << "No solution found." << endl;
+    }
+    else
+    {
+        cout << "Indices of the two numbers that sum up to target: " << indices[0] << ", " << indices[1] << endl;
+    }
+
+    return 0;
+}
 // ===================>>>
 // Intuition
 // The Two Sum problem asks us to find two numbers in an array that sum up to a given target value. We need to

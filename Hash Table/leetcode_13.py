@@ -20,58 +20,73 @@
 # C can be placed before D (500) and M (1000) to make 400 and 900.
 # Given a roman numeral, convert it to an integer.
 
-class Solution:
-  def romanToInt(self, s: str) -> int:
-    """Converts a Roman numeral to an integer.
-
-    Args:
-      s: A string representing a Roman numeral.
-
-    Returns:
-      An integer representing the value of the Roman numeral.
-    """
-
+def romanToInt(s):
     roman_numeral_map = {
-        "I": 1,
-        "V": 5,
-        "X": 10,
-        "L": 50,
-        "C": 100,
-        "D": 500,
-        "M": 1000,
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000,
     }
 
     integer = 0
     previous_value = 0
-    for char in s[::-1]:
-      current_value = roman_numeral_map[char]
-      if current_value < previous_value:
-        integer -= current_value
-      else:
-        integer += current_value
-      previous_value = current_value
+    for i in range(len(s) - 1, -1, -1):
+        current_numeral = s[i]
+        current_value = roman_numeral_map[current_numeral]
+
+        if current_value < previous_value:
+            integer -= current_value
+        else:
+            integer += current_value
+
+        previous_value = current_value
 
     return integer
 
 
-# class Solution:
-#     def romanToInt(self, s: str) -> int:
-#         m = {
-#             'I': 1,
-#             'V': 5,
-#             'X': 10,
-#             'L': 50,
-#             'C': 100,
-#             'D': 500,
-#             'M': 1000
-#         }
-#
-#         ans = 0
-#
-#         for i in range(len(s)):
-#             if i < len(s) - 1 and m[s[i]] < m[s[i + 1]]:
-#                 ans -= m[s[i]]
-#             else:
-#                 ans += m[s[i]]
-#
-#         return ans
+if __name__ == "__main__":
+    s = "MCMXCIV"
+    integer = romanToInt(s)
+
+    print(f"The integer equivalent of the Roman numeral \"{s}\" is: {integer}")
+
+
+
+
+class Solution:
+    def romanToInt(self, s):
+        roman_numeral_map = {
+            'I': 1,
+            'V': 5,
+            'X': 10,
+            'L': 50,
+            'C': 100,
+            'D': 500,
+            'M': 1000,
+        }
+
+        result = 0
+        previous_value = 0
+        for i in range(len(s) - 1, -1, -1):
+            current_numeral = s[i]
+            current_value = roman_numeral_map[current_numeral]
+
+            if current_value < previous_value:
+                result -= current_value
+            else:
+                result += current_value
+
+            previous_value = current_value
+
+        return result
+
+
+if __name__ == "__main__":
+    s = "MCMXCIV"
+    solution = Solution()
+    integer = solution.romanToInt(s)
+
+    print(f"The integer equivalent of the Roman numeral \"{s}\" is: {integer}")

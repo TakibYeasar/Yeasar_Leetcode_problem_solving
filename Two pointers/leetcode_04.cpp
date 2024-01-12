@@ -67,3 +67,21 @@ public:
         }
     }
 };
+
+int main()
+{
+    // Create vectors of integers for nums1 and nums2
+    vector<int> nums1 = {1, 3};
+    vector<int> nums2 = {2};
+
+    // Create a Solution object
+    Solution solution;
+
+    // Find the median of the two sorted arrays
+    double median = solution.findMedianSortedArrays(nums1, nums2);
+
+    // Print the median value
+    cout << "Median of the two sorted arrays: " << median << endl;
+
+    return 0;
+}

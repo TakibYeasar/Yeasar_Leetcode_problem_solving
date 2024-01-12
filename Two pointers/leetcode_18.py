@@ -6,6 +6,14 @@
 
 
 # ===================>>>✔️ Solution 2 : Sort then Two Pointers
+
+class List:
+    def __init__(self):
+        self.data = []
+
+    def append(self, item):
+        self.data.append(item)
+        
 class Solution:
     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
         nums.sort()
