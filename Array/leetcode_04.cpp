@@ -1,20 +1,7 @@
-// Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
-// The overall run time complexity should be O(log(m + n)).
 
-// Problem Understanding : In simpler terms, you need to find the middle value of the combined, sorted array formed by
-// merging nums1 and nums2.If the combined array has an even number of elements, you should return the average of the two
-// middle values.If it has an odd number of elements, you should return the middle value itself.
+// Problem Link ====>> https://leetcode.com/problems/median-of-two-sorted-arrays/description/
 
 //===================>>> Approach 1 : Merge and Sort
-// Create a new array with a size equal to the total number of elements in both input arrays.
-// Insert elements from both input arrays into the new array.
-// Sort the new array.Find and return the median of the sorted array.
-
-// Time Complexity
-// In the worst case TC is O((n + m) * log(n + m)) .
-
-// Space Complexity
-// O(n + m), where ‘n’ and ‘m’ are the sizes of the arrays.
 
 #include <iostream>
 #include <vector>
