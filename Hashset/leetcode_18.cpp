@@ -1,17 +1,5 @@
-// Given an array nums of n integers, return an array of all the unique quadruplets[nums[a], nums[b], nums[c], nums[d]]
-// such that : 0 <= a, b, c, d < n
-// a, b, c, and d are distinct.
-// nums[a] + nums[b] + nums[c] + nums[d] == target
-// You may return the answer in any order.
 
-// ===================>>>✔️ Solution 1 : HashSet
-// The idea is to use HashSet to track past elements.
-// We iterate the combinations of nums[i], nums[j], nums[k], and calculate the last number by lastNumber = target - nums[i] - nums[j] - nums[k].
-// We check if lastNumber is existed the past by checking in the HashSet, if existed, then it form a quadruplets then add it to the answer.
-
-// Complexity :
-// Time : O(N ^ 3)
-// Extra Space(Without count output as space) : O(N)
+// Problem Link ====>>https://leetcode.com/problems/4sum/description/
 
 #include <iostream>
 #include <vector>

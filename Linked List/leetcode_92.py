@@ -1,5 +1,4 @@
-# Given the head of a singly linked list and two integers left and right where left <= right, 
-# reverse the nodes of the list from position left to position right, and return the reversed list.
+# Problem Link ====>>https://leetcode.com/problems/reverse-linked-list-ii/description/
 
 class ListNode:
     def __init__(self, val=0, next=None):

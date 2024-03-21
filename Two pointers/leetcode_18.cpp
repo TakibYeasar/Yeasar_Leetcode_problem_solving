@@ -1,25 +1,7 @@
-// Given an array nums of n integers, return an array of all the unique quadruplets[nums[a], nums[b], nums[c], nums[d]]
-// such that : 0 <= a, b, c, d < n
-// a, b, c, and d are distinct.
-// nums[a] + nums[b] + nums[c] + nums[d] == target
-// You may return the answer in any order.
 
-
+// Problem Link ====>>https://leetcode.com/problems/4sum/description/
 
 // ===================>>>✔️ Solution 2 : Sort then Two Pointers
-
-// Sort nums in increasing order.
-// We fix nums[i], nums[j] by iterating the combination of nums[i], nums[j], then the problem now become to very classic problem 1. Two Sum.
-// By using two pointers, one points to left, the other points to right, remain = target - nums[i] - nums[j].
-// If: nums[left] + nums[right] == remain 
-// Found a valid quadruplets 
-// Else: if nums[left] + nums[right] > remain 
-// Sum is bigger than remain, need to decrease sum by right -= 1 
-// Else : Increasing sum by left += 1.
-
-// Complexity :
-// Time : O(N ^ 3)
-// Extra Space(Without count output as space) : O(sorting)
 
 #include <iostream>
 #include <vector>

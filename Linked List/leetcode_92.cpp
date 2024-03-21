@@ -1,30 +1,4 @@
-// Given the head of a singly linked list and two integers left and right where left <= right, 
-// reverse the nodes of the list from position left to position right, and return the reversed list.
-
-// ===========> Solution
-// Using Two Pointers (One-Pass)
-// Intuition and Logic Behind the Solution
-// In this efficient method, we employ two pointers to traverse and manipulate the linked list in one go. 
-// The clever use of a dummy node helps us elegantly handle edge cases, and tuple unpacking makes the code more Pythonic and straightforward.
-
-// Step-by-step Explanation
-// Initialization:
-
-// Create a dummy node and connect its next to the head of the list.
-// Initialize a prev pointer to the dummy node.
-// Move to Start Position:
-
-// Traverse the list until the node just before the left-th node is reached.
-// Execute Sublist Reversal:
-
-// Use a current pointer to keep track of the first node in the sublist.
-// Reverse the sublist nodes using prev and current.
-// Link Back:
-
-// Automatically link the reversed sublist back into the original list.
-// Complexity Analysis
-// Time Complexity: O(n) — A single traversal does the job.
-// Space Complexity: O(1) — Smart pointer manipulation eliminates the need for additional data structures.
+// Problem Link ====>>https://leetcode.com/problems/reverse-linked-list-ii/description/
 
 #include<bits/stdc++.h>
 using namespace std;
