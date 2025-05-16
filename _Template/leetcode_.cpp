@@ -7,7 +7,7 @@
 using namespace std;
 using namespace __gnu_pbds;
 #define ll long long
-#define ld = long double
+#define ld long double
 #define endl '\n'
 const int MOD = 1e9 + 7;
 const double EPS = 1e-9;
