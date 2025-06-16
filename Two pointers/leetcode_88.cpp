@@ -1,5 +1,5 @@
 
-// Problem link ===>> 
+// Problem link ===>> https://leetcode.com/problems/merge-sorted-array/description/?envType=problem-list-v2&envId=21r1eree
 
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
@@ -16,6 +16,28 @@ template <typename T>
 using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 template <typename T>
 using ordered_set_mul = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
+
+class Solution
+{
+public:
+    void merge(vector<int> &nums1, int m, vector<int> &nums2, int n)
+    {
+        int i = m - 1;
+        int j = n - 1;
+        int k = m + n - 1;
+
+        while(j>= 0){
+            if (i >= 0 && nums1[i] > nums2[j])
+            {
+                nums1[k--] = nums1[i--];
+            }
+            else
+            {
+                nums1[k--] = nums2[j--];
+            }
+        }
+    }
+};
 
 int main()
 {
