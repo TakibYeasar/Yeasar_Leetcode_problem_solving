@@ -1,6 +1,6 @@
 
 # Problem link ===>> https://leetcode.com/problems/contains-duplicate-iii/description/?envType=problem-list-v2&envId=21r1z5od
-# submission link == =>> 
+# submission link == =>> https://leetcode.com/problems/contains-duplicate-iii/submissions/1700254598/?envType=problem-list-v2&envId=21r1z5od
 
 import collections
 import sys
@@ -19,35 +19,47 @@ print = sys.stdout.write
 
 
 class Solution:
-    def containsNearbyAlmostDuplicate(self, nums: List[int], indexDiff: int, valueDiff: int) -> bool:
+    def containsNearbyAlmostDuplicate(self, nums: list[int], k: int, t: int) -> bool:
         n = len(nums)
-        if n == 0 or indexDiff < 0 or valueDiff < 0:
+        if n == 0 or k < 0 or t < 0:
             return False
-        buckets = collections.OrderedDict()
+        
+        bucket_size = t + 1
+
+        buckets = {}
 
         for i in range(n):
-            bucket_size = valueDiff + 1
+            num = nums[i]
 
-            bucket = nums[i] // bucket_size
-            if nums[i] < 0:
-                bucket -= 1
+            bucket_idx = num // bucket_size
+            if num < 0 and num % bucket_size != 0:
+                bucket_idx = int(num / bucket_size)
+                pass
+            
+            bucket_idx = int(num / bucket_size)
+            if num < 0:
+                bucket_idx -= 1
 
-            if bucket in buckets:
+            if bucket_idx in buckets:
                 return True
 
-            if (bucket - 1) in buckets and abs(nums[i] - buckets[bucket - 1]) <= valueDiff:
+            if (bucket_idx - 1) in buckets and abs(num - buckets[bucket_idx - 1]) <= t:
                 return True
-            if (bucket + 1) in buckets and abs(nums[i] - buckets[bucket + 1]) <= valueDiff:
+            
+            if (bucket_idx + 1) in buckets and abs(num - buckets[bucket_idx + 1]) <= t:
                 return True
 
-            buckets[bucket] = nums[i]
-            if len(buckets) > indexDiff:
-                old_bucket = nums[i - indexDiff] // bucket_size
-                if nums[i - indexDiff] < 0:
-                    old_bucket -= 1
+            buckets[bucket_idx] = num
 
-                if old_bucket in buckets:
-                    buckets.pop(old_bucket)
+            if i >= k:
+                old_num = nums[i - k]
+                old_bucket_idx = int(old_num / bucket_size)
+                
+                if old_num < 0:
+                    old_bucket_idx -= 1
+                    
+                if old_bucket_idx in buckets:
+                    del buckets[old_bucket_idx]
 
         return False
 
