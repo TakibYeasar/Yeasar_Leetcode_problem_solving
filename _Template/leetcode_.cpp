@@ -13,9 +13,10 @@ const int MOD = 1e9 + 7;
 const double EPS = 1e-9;
 const double PI = acos(-1.0);
 template <typename T>
-using ordered_map = tree<K, V, less<K>, rb_tree_tag, tree_order_statistics_node_update>;
-template <typename T>
 using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+template <typename K, typename V>
+using ordered_map = tree<
+    K, V, less<K>, rb_tree_tag, tree_order_statistics_node_update>;
 
 int main()
 {
